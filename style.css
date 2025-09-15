@@ -90,7 +90,38 @@ a { color: inherit; text-decoration: none; }
 .section-header { text-align: center; margin-bottom: 1rem; }
 .section-header h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 0; color: var(--deep-blue); }
 .section-header p { color: var(--muted); margin-top: .35rem; }
+/* Cadre standard (16:9) */
+.z-ugc-video-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 9/16 */
+}
+.z-ugc-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
+/* Mode vertical (Shorts) : cadre 9:16 + rognage des côtés */
+.z-ugc-video-wrapper.is-vertical {
+  padding-top: 177.78%; /* 16/9 × 100 => 9:16 */
+  overflow: hidden;      /* rogne ce qui dépasse */
+}
+
+/* Agrandir le lecteur 16:9 pour couvrir un cadre 9:16 et couper les côtés */
+.z-ugc-video-wrapper.is-vertical iframe {
+  /* largeur > 100% pour zoomer le player dans le cadre 9:16 */
+  width: 177.78%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Optionnel: pour réduire l'UI et éviter le halo noir des contrôles */
+.z-ugc-lightbox.is-open .z-ugc-video-wrapper iframe {
+  background: #000;
+}
 .portfolio-swiper { padding: 1rem 0 2.2rem; }
 .swiper-slide { height: auto; }
 .thumb { position: relative; display: block; overflow: hidden; border-radius: 16px; border: 1px solid rgba(14,58,91,0.08); background: #fff; box-shadow: var(--shadow); }
