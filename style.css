@@ -1,0 +1,154 @@
+
+/*
+  ZAINAB_UGC — Portfolio UGC (FR)
+  Auteur: M365 Copilot
+  Notes:
+    - Palette inspirée du Maroc (terre cuite, safran, bleu profond, menthe)
+    - Mobile-first, animations douces, motifs géométriques subtils
+*/
+
+:root {
+  --terracotta: #C6562B;
+  --saffron: #E8A20C;
+  --deep-blue: #0E3A5B; /* bleu profond */
+  --mint: #2DBFA5;
+  --sand: #F7EFE7;
+  --ink: #131517;
+  --muted: #5A6A75;
+  --bg: #FFFCF8;
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --radius: 14px;
+}
+
+/* Reset moderne minimal */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink); background: var(--bg); line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+.section { position: relative; scroll-margin-top: 90px; }
+.container { width: min(1100px, 92%); margin-inline: auto; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: .5rem .75rem; background: var(--deep-blue); color: #fff; border-radius: 8px; z-index: 10000; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 999; backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(14,58,91,0.08);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: .6rem 0; }
+.logo { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; color: var(--deep-blue); }
+.logo .accent { color: var(--terracotta); }
+.main-nav ul { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.main-nav a { padding: .55rem .8rem; border-radius: 999px; transition: background .25s ease, color .25s ease; font-weight: 500; }
+.main-nav a:hover { background: var(--sand); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: .8rem 1.1rem; border-radius: 12px; font-weight: 600; border: 2px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .2s ease; }
+.btn-primary { background: var(--terracotta); color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-secondary { background: var(--deep-blue); color: #fff; }
+.btn-secondary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+/* Hero */
+.hero { background: radial-gradient(1200px 600px at 90% -10%, rgba(45,191,165,0.08), transparent 60%),
+                    radial-gradient(800px 500px at -10% 20%, rgba(230,162,12,0.10), transparent 60%);
+        position: relative; overflow: hidden; }
+.hero-inner { display: grid; grid-template-columns: 1fr; align-items: center; gap: 2rem; padding: 5.5rem 0 2rem; }
+.headline { font-family: 'Cairo', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; margin: 0 0 .5rem; }
+.hello { display: inline-block; font-weight: 600; color: var(--mint); }
+.name { color: var(--deep-blue); font-weight: 800; }
+.role { color: var(--terracotta); font-weight: 700; }
+.tagline { color: var(--muted); margin: .5rem 0 1.25rem; max-width: 42ch; }
+.hero-cta { display: flex; gap: .75rem; flex-wrap: wrap; }
+.quick-stats { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; gap: 1rem; color: var(--deep-blue); }
+.quick-stats li { background: #fff; border: 1px solid rgba(14,58,91,0.08); border-radius: 999px; padding: .4rem .8rem; font-size: .9rem; }
+.hero-visual { position: relative; min-height: 180px; }
+.hero-visual .motif { position: absolute; inset: 0; background-image: url('../assets/moroccan-pattern.svg'); opacity: .07; background-size: 180px; background-repeat: repeat; border-radius: 24px; }
+.hero-badge { position: absolute; right: 12px; bottom: -6px; background: var(--deep-blue); color: #fff; padding: .5rem .75rem; border-radius: 10px; font-weight: 700; box-shadow: var(--shadow); }
+
+.section-separator { width: 100%; display: block; opacity: .8; }
+.section-separator.bottom { position: absolute; bottom: -1px; left: 0; }
+
+/* About */
+.about { padding: 3rem 0 1.5rem; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: center; }
+.about-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 .75rem; color: var(--deep-blue); }
+.about-highlights { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.chip { background: var(--sand); color: #3b3b3b; padding: .35rem .6rem; border-radius: 999px; font-size: .85rem; border: 1px solid rgba(14,58,91,0.08); }
+.about-photo img { border-radius: 18px; box-shadow: var(--shadow); }
+
+/* Portfolio */
+.portfolio { padding: 2.5rem 0; }
+.section-header { text-align: center; margin-bottom: 1rem; }
+.section-header h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 0; color: var(--deep-blue); }
+.section-header p { color: var(--muted); margin-top: .35rem; }
+
+.portfolio-swiper { padding: 1rem 0 2.2rem; }
+.swiper-slide { height: auto; }
+.thumb { position: relative; display: block; overflow: hidden; border-radius: 16px; border: 1px solid rgba(14,58,91,0.08); background: #fff; box-shadow: var(--shadow); }
+.thumb img { transition: transform .5s ease; }
+.thumb:hover img { transform: scale(1.04); }
+.play-icon { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(14,58,91,0.9); color: #fff; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; font-weight: 700; box-shadow: var(--shadow); }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
+.lightbox.open { display: flex; }
+.lightbox-content { background: #000; border-radius: 16px; max-width: 960px; width: 100%; box-shadow: var(--shadow); position: relative; }
+.video-wrapper { position: relative; padding-top: 56.25%; }
+.video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.lightbox-close { position: absolute; top: -44px; right: 0; background: #fff; color: #000; border: none; border-radius: 8px; padding: .4rem .6rem; cursor: pointer; font-size: 1.1rem; }
+
+/* Services */
+.services { padding: 2.5rem 0; background: linear-gradient(180deg, rgba(14,58,91,0.03), transparent); }
+.service-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.service-card { background: #fff; border: 1px solid rgba(14,58,91,0.08); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+.service-card .icon { font-size: 1.6rem; margin-bottom: .5rem; }
+
+/* Testimonials */
+.testimonials { padding: 2.5rem 0; }
+.testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.testimonial { background: #fff; border: 1px solid rgba(14,58,91,0.08); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); }
+.testimonial blockquote { margin: 0 0 .6rem; font-style: italic; }
+
+/* Contact */
+.contact { padding: 2.5rem 0 3.5rem; background:
+  radial-gradient(600px 300px at 100% 0%, rgba(205,86,43,0.08), transparent 70%),
+  radial-gradient(600px 300px at 0% 100%, rgba(45,191,165,0.08), transparent 70%);
+}
+.contact-card { background: #fff; border: 1px solid rgba(14,58,91,0.08); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); max-width: 720px; margin: 0 auto; text-align: center; }
+.socials { display: flex; justify-content: center; gap: .6rem; margin-top: .6rem; }
+.social { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; font-weight: 700; color: #fff; transition: transform .18s ease; }
+.social:hover { transform: translateY(-2px); }
+.social.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+.social.tiktok { background: #000; position: relative; }
+.social.tiktok::before { content: ''; position: absolute; inset: -2px; background: conic-gradient(from 180deg at 50% 50%, #25F4EE, #FE2C55, #25F4EE); filter: blur(12px); opacity: .35; z-index: -1; border-radius: 999px; }
+
+/* Footer */
+.site-footer { border-top: 1px solid rgba(14,58,91,0.08); padding: 1rem 0; text-align: center; color: var(--muted); }
+
+/* Responsive */
+@media (min-width: 700px) {
+  .hero-inner { grid-template-columns: 1.1fr .9fr; padding: 6.5rem 0 3rem; }
+  .about-grid { grid-template-columns: 1.1fr .9fr; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .thumb img, .btn { transition: none; }
+}
